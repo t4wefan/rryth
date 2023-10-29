@@ -70,7 +70,7 @@ export function apply(ctx: Context, config: Config) {
     .action(async ({ session, options }, input) => {
 
       if (!input?.trim()) return session.execute(`help ${name}`)
-
+      
       let imgUrl: string, image: ImageData
       input = h.transform(input, {
         image(attrs) {
@@ -170,7 +170,7 @@ export function apply(ctx: Context, config: Config) {
         }
         return body
       })()
-      const request = () => ctx.http.axios('https://api.draw.t4wefan.pub/', {
+      const request = () => ctx.http.axios('https://api.draw.t4wefan.pub/sdapi/v1/txt2img', {
         method: 'POST',
         timeout: config.requestTimeout,
         headers: {
@@ -194,9 +194,8 @@ export function apply(ctx: Context, config: Config) {
       }
 
       async function getContent() {
-        const safeImg = config.censor
-          ? h('censor', h('image', { url: 'data:image/png;base64,' + ret[0] }))
-          : h('image', { url: 'data:image/png;base64,' + ret[0] })
+        const safeImg = h('image', { url: 'data:image/png;base64,' + ret[0] })
+
         const attrs: Dict<any, string> = {
           userId: session.userId,
           nickname: session.author?.nickname || session.username,

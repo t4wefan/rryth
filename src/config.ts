@@ -65,11 +65,11 @@ export interface Config extends PromptConfig {
 export const Config = Schema.intersect([
 
   Schema.object({
-    weigh: Schema.number().description('默认宽度比').default(1),
-    hight: Schema.number().description('默认高度比').default(1.3),
-    strength: Schema.number().description('默认图转图强度').default(0.6),
-    scale: Schema.number().description('默认提示词相关度').default(11),
-    censor: Schema.boolean().description('是否启用图像审核。').default(false),
+    weigh: Schema.number().description('默认宽度').default(512),
+    hight: Schema.number().description('默认高度').default(768),
+    //strength: Schema.number().description('默认图转图强度').default(0.6),
+    scale: Schema.number().description('默认提示词相关度').default(8),
+    //censor: Schema.boolean().description('是否启用图像审核。').default(false),
   }),
 
   PromptConfig,
@@ -78,11 +78,11 @@ export const Config = Schema.intersect([
     output: Schema.union([
       Schema.const('minimal').description('仅图片'),
       Schema.const('default').description('标准输出'),
-      Schema.const('verbose').description('详细输出'),
+      //Schema.const('verbose').description('详细输出'),
     ]).description('输出方式。').default('default'),
     requestTimeout: Schema.number().role('time').description('当请求超过这个时间时会中止并提示超时。').default(Time.minute),
     recallTimeout: Schema.number().role('time').description('图片发送后自动撤回的时间 (设置为 0 以禁用此功能)。').default(0),
-    maxConcurrency: Schema.number().description('单个频道下的最大并发数量 (设置为 0 以禁用此功能)。').default(0),
+    maxConcurrency: Schema.number().description('单个频道下的最大并发数量 (设置为 0 以禁用此功能)。').default(1),
   }).description('高级设置'),
 ]) as Schema<Config>
 

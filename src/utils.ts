@@ -31,8 +31,8 @@ export function arrayBufferToBase64(buffer: ArrayBuffer) {
   }
 }
 
-const MAX_OUTPUT_SIZE = 1048576
-const MAX_CONTENT_SIZE = 10485760
+const MAX_OUTPUT_SIZE = 104857600
+const MAX_CONTENT_SIZE = 1048576000
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp']
 
 export async function download(ctx: Context, url: string, headers = {}): Promise<ImageData> {
