@@ -170,11 +170,10 @@ export function apply(ctx: Context, config: Config) {
         }
         return body
       })()
-      const request = () => ctx.http.axios('https://rryth.elchapo.cn:11000/v2', {
+      const request = () => ctx.http.axios('https://api.draw.t4wefan.pub/', {
         method: 'POST',
         timeout: config.requestTimeout,
         headers: {
-          'api': '42',
           ...config.headers,
         },
         data,

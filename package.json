@@ -1,6 +1,6 @@
 {
-  "name": "koishi-plugin-rryth",
-  "description": "Generate images by horde",
+  "name": "koishi-plugin-rryth2",
+  "description": "Generate images from t4",
   "version": "2.4.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -10,8 +10,9 @@
   "browser": {
     "image-size": false
   },
-  "author": "42 <mirrorcy@vip.qq.com>",
+  "author": "t4wefan",
   "contributors": [
+    "t4wefan <guanghoushi@gmail.com>",
     "42 <mirrorcy@vip.qq.com>",
     "Lipraty <sis1943@outlook.com>"
   ],
@@ -35,7 +36,7 @@
       ]
     },
     "description": {
-      "zh": "人人有图画计划。无需自行搭建后端的、开箱即用的、免费的、无需登录注册的画画插件"
+      "zh": "复活的人人有图画计划。无需自行搭建后端的、开箱即用的、免费的、无需登录注册的画画插件"
     }
   },
   "keywords": [
