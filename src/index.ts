@@ -17,7 +17,10 @@ function handleError(session: Session, err: Error) {
   if (Quester.isAxiosError(err)) {
     if (err.response?.data) {
       logger.error(err.response.data)
-      return session.text(err.response.data.message)
+      if (err.response.data.message) {
+        return session.text(err.response.data.message)
+      }
+      return session.text('.unknown-error')
     }
     if (err.response?.status === 402) {
       return session.text('.unauthorized')
