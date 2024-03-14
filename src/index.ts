@@ -12,6 +12,9 @@ export const reactive = true
 export const name = 'rryth'
 
 const logger = new Logger(name)
+export const inject = {
+  "optional": ["translator"]
+}
 
 function handleError(session: Session, err: Error) {
   if (Quester.isAxiosError(err)) {
